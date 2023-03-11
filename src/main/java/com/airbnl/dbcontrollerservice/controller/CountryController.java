@@ -3,6 +3,7 @@ package com.airbnl.dbcontrollerservice.controller;
 import com.airbnl.dbcontrollerservice.model.Country;
 import com.airbnl.dbcontrollerservice.service.interfaces.ICountryService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,5 +21,9 @@ public class CountryController {
     @GetMapping("/getAllCountries")
     List<Country> getAllCountries() {
         return countryService.getAllCountries();
+    }
+    @PostMapping("/save")
+    Country save(Country country) {
+        return countryService.save(country);
     }
 }

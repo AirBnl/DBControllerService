@@ -24,4 +24,12 @@ public class RoomServiceImpl implements IRoomService {
     public List<Room> getRoomsByCountryAndRoomTypeIds(int countryId, int roomTypeId) {
         return roomRepository.findAllByTypeId(roomTypeId);
     }
+    @Override
+    public Room save(Room room) {
+        return roomRepository.save(room);
+    }
+    @Override
+    public Room getById(long roomId){
+        return roomRepository.getById(roomId);
+    }
 }

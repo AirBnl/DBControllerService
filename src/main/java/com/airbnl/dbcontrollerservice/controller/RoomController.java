@@ -2,10 +2,7 @@ package com.airbnl.dbcontrollerservice.controller;
 
 import com.airbnl.dbcontrollerservice.model.Room;
 import com.airbnl.dbcontrollerservice.service.interfaces.IRoomService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,7 +14,10 @@ public class RoomController {
     public RoomController(IRoomService roomService) {
         this.roomService = roomService;
     }
-
+    @GetMapping("/getById")
+    Room getById(@RequestParam("roomId") long roomId) {
+        return roomService.getById(roomId);
+    }
     @GetMapping("/getRoomsByHotelId")
     List<Room> getRoomsByHotelId(@RequestParam("hotelId") long hotelId) {
         return roomService.getRoomsByHotelId(hotelId);
@@ -26,5 +26,10 @@ public class RoomController {
     @GetMapping("/getRoomsByCountryAndRoomTypeIds")
     List<Room> getRoomsByCountryAndRoomTypeIds(@RequestParam("countryId") int countryId, @RequestParam("roomTypeId") int roomTypeId) {
         return roomService.getRoomsByCountryAndRoomTypeIds(countryId, roomTypeId);
+    }
+
+    @PostMapping("/save")
+    Room save(@RequestBody Room room) {
+        return roomService.save(room);
     }
 }

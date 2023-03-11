@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ICountryService {
     List<Country> getAllCountries();
+    Country save(Country country);
 }

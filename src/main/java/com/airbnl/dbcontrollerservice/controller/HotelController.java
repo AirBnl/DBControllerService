@@ -15,12 +15,12 @@ public class HotelController {
         this.hotelService = hotelService;
     }
 
-    @GetMapping("/getAllHotels")
+    @GetMapping("/allHotels")
     public List<Hotel> getAllHotels() {
         return hotelService.getAllHotels();
     }
 
-    @GetMapping("/getAllHotelsBasedOnTheCountry")
+    @GetMapping("/allByCountryId")
     public List<Hotel> getAllHotelsBasedOnTheCountry(@RequestParam("countryId") long countryId) {
         return hotelService.getAllHotelsBasedOnTheCountry(countryId);
     }
@@ -30,12 +30,12 @@ public class HotelController {
         return hotelService.save(hotel);
     }
 
-    @GetMapping("/ByManagerID")
+    @GetMapping("/allByManagerID")
     public List<Hotel> getAllByManagerID(@RequestParam("managerId") int managerId) {
         return hotelService.getAllHotelsByManagerId(managerId);
     }
 
-    @GetMapping("/byHotelIdAndManagerID")
+    @GetMapping("/byHotelIdAndManagerId")
     public Hotel getByHotelIdAndManagerId(@RequestParam("hotelId") int hotelId, @RequestParam("managerId") int managerId) {
         return hotelService.getHotelByHotelIdAndManagerId(hotelId, managerId);
     }

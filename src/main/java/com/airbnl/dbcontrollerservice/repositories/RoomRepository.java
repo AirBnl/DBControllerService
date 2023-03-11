@@ -8,7 +8,7 @@ import java.util.List;
 public interface RoomRepository extends JpaRepository<Room, Long> {
     @Override
     List<Room> findAll();
-
+    Room getById(long roomId);
     List<Room> findAllByHotelId(long hotelId);
 
     List<Room> findAllByTypeId(long roomTypeId);
