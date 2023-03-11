@@ -15,16 +15,19 @@ public class RoleController {
         this.roleService = roleService;
     }
 
-    @GetMapping("/getAll")
+    @GetMapping
+    @RequestMapping("/getAll")
     public List<Role> getAllRoles() {
         return roleService.getAllRoles();
     }
 
-    @GetMapping("/getById")
+    @GetMapping
+    @RequestMapping("/getById")
     public Role getRoleById(@RequestParam("roleId") long roleId) {
         return roleService.getRoleById(roleId);
     }
     @PostMapping
+    @RequestMapping("/save")
     public Role save(@RequestBody Role role){
         return roleService.save(role);
     }
