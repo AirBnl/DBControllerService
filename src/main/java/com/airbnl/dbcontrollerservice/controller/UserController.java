@@ -13,7 +13,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/getByUserName")
+    @GetMapping("/getByUsername")
     User getUserByUserName(@RequestParam("username") String username) {
         return userService.getUserByUserName(username);
     }

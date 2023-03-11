@@ -10,4 +10,10 @@ public interface IReservationService {
     List<Reservation> getRoomReservationsByUserId(long userId);
 
     Reservation makeReservation(Reservation reservation);
+
+
+    List<Reservation> getAllByHotelAndManagerId(long hotelId, long managerId);
+
+    Reservation getByReservationIdAndManagerId(long reservationId, long managerId);
+
 }

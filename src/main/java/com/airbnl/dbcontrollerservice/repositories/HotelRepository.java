@@ -7,4 +7,10 @@ import java.util.List;
 
 public interface HotelRepository extends JpaRepository<Hotel, Long> {
     List<Hotel> getHotelByCountryId(long countryId);
+
+    List<Hotel> getHotelByManagerId(long managerId);
+
+    Hotel getHotelByIdAndManagerId(long id, long managerId);
+
+    Hotel deleteHotelByIdAndManagerId(long id, long managerId);
 }

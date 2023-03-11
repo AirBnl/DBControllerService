@@ -24,4 +24,15 @@ public class ReservationServiceImpl implements IReservationService {
     public Reservation makeReservation(Reservation reservation) {
         return reservationRepository.save(reservation);
     }
+
+
+    @Override
+    public List<Reservation> getAllByHotelAndManagerId(long hotelId, long managerId) {
+        return null;
+    }
+
+    @Override
+    public Reservation getByReservationIdAndManagerId(long reservationId, long managerId) {
+        return reservationRepository.getReservationById(reservationId);
+    }
 }

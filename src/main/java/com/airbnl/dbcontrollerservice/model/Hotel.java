@@ -18,6 +18,6 @@ public class Hotel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    private int managerId;
-    private int countryId;
+    private long managerId;
+    private long countryId;
 }

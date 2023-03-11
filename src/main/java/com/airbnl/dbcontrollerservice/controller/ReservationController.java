@@ -16,12 +16,23 @@ public class ReservationController {
     }
 
     @GetMapping("/getRoomReservationsByUserId")
-    List<Reservation> getRoomReservationsByUserId(@RequestParam("userId") long userId) {
+    public List<Reservation> getRoomReservationsByUserId(@RequestParam("userId") long userId) {
         return reservationService.getRoomReservationsByUserId(userId);
     }
 
-    @PostMapping("/makeReservation")
-    Reservation makeReservation(@RequestBody Reservation reservation) {
+    @PostMapping("/save")
+    public Reservation makeReservation(@RequestBody Reservation reservation) {
         return reservationService.makeReservation(reservation);
+    }
+
+
+    @GetMapping("/byHotelIdAndManagerID")
+    public List<Reservation> getAllByHotelAndManagerId(@RequestParam("hotelId") int hotelId, @RequestParam("managerId") int managerId) {
+        return reservationService.getAllByHotelAndManagerId(hotelId, managerId);
+    }
+
+    @GetMapping("/reservationIdAndManagerId")
+    public Reservation getByReservationIdAndManagerId(@RequestParam("reservationId") int reservationId, @RequestParam("managerId") int managerId) {
+        return reservationService.getByReservationIdAndManagerId(reservationId, managerId);
     }
 }
