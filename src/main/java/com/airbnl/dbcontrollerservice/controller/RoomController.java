@@ -22,6 +22,10 @@ public class RoomController {
     List<Room> getRoomsByHotelId(@RequestParam("hotelId") long hotelId) {
         return roomService.getRoomsByHotelId(hotelId);
     }
+    @GetMapping("/getAllByHotelIdAndManagerId")
+    List<Room> getAllByHotelIdAndManagerId(@RequestParam("hotelId") long hotelId, @RequestParam("roomId") long roomId) {
+        return roomService.getRoomsByHotelId(hotelId);
+    }
 
     @GetMapping("/getRoomsByCountryAndRoomTypeIds")
     List<Room> getRoomsByCountryAndRoomTypeIds(@RequestParam("countryId") int countryId, @RequestParam("roomTypeId") int roomTypeId) {

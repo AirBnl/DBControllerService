@@ -9,6 +9,9 @@ public interface IRoomService {
     List<Room> getRoomsByHotelId(long hotelId);
 
     List<Room> getRoomsByCountryAndRoomTypeIds(int countryId, int roomTypeId);
+
+    List<Room> getAllByHotelId(int hotelId);
+
     public Room save(Room room);
     Room getById(long roomId);
 }
