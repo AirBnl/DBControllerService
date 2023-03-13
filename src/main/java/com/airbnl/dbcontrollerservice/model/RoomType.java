@@ -19,6 +19,6 @@ public class RoomType {
     private long id;
     private String name;
     private double price;
-    private int hotelId;
+    private long hotelId;
 
 }

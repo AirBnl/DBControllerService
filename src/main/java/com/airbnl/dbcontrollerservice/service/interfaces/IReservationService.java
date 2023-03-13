@@ -16,4 +16,9 @@ public interface IReservationService {
 
     Reservation getByReservationIdAndManagerId(long reservationId, long managerId);
 
+    List<Reservation> getAllByManagerId(long managerId);
+
+    Reservation update(Reservation reservation);
+
+    Reservation delete(long reservationId);
 }

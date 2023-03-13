@@ -24,4 +24,9 @@ public class CountryServiceImpl implements ICountryService {
     public Country save(Country country) {
         return countryRepository.save(country);
     }
+
+    @Override
+    public Country getCountryById(long countryId) {
+        return countryRepository.findCountryById(countryId);
+    }
 }

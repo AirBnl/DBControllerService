@@ -27,12 +27,27 @@ public class ReservationController {
 
 
     @GetMapping("/byHotelIdAndManagerID")
-    public List<Reservation> getAllByHotelAndManagerId(@RequestParam("hotelId") int hotelId, @RequestParam("managerId") int managerId) {
+    public List<Reservation> getAllByHotelAndManagerId(@RequestParam("hotelId") long hotelId, @RequestParam("managerId") long managerId) {
         return reservationService.getAllByHotelAndManagerId(hotelId, managerId);
     }
 
+    @GetMapping("/byManagerID")
+    public List<Reservation> getAllByManagerID(@RequestParam("managerId") long managerId) {
+        return reservationService.getAllByManagerId(managerId);
+    }
+
+    @PutMapping("/update")
+    public Reservation update(@RequestBody Reservation reservation) {
+        return reservationService.update(reservation);
+    }
+
+    @DeleteMapping("/delete")
+    public Reservation delete(@RequestParam("reservationId") long reservationId) {
+        return reservationService.delete(reservationId);
+    }
+
     @GetMapping("/reservationIdAndManagerId")
-    public Reservation getByReservationIdAndManagerId(@RequestParam("reservationId") int reservationId, @RequestParam("managerId") int managerId) {
+    public Reservation getByReservationIdAndManagerId(@RequestParam("reservationId") long reservationId, @RequestParam("managerId") long managerId) {
         return reservationService.getByReservationIdAndManagerId(reservationId, managerId);
     }
 }

@@ -5,6 +5,7 @@ import com.airbnl.dbcontrollerservice.repositories.HotelRepository;
 import com.airbnl.dbcontrollerservice.service.interfaces.IHotelService;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -36,7 +37,7 @@ public class HotelServiceImpl implements IHotelService {
     }
 
     @Override
-    public Hotel getHotelByHotelIdAndManagerId(int hotelId, int managerId) {
+    public Hotel getHotelByHotelIdAndManagerId(long hotelId, long managerId) {
         return hotelRepository.getHotelByIdAndManagerId(hotelId, managerId);
     }
 
@@ -44,9 +45,14 @@ public class HotelServiceImpl implements IHotelService {
     public Hotel update(Hotel hotel) {
         return hotelRepository.save(hotel);
     }
+    @Transactional
+    @Override
+    public Hotel deleteByIdAndManagerID(long hotelId, long managerId) {
+        return new Hotel(hotelRepository.deleteHotelByIdAndManagerId(hotelId, managerId),"",managerId,-1);
+    }
 
     @Override
-    public Hotel deleteByIdAndManagerID(int hotelId, int managerId) {
-        return hotelRepository.deleteHotelByIdAndManagerId(hotelId, managerId);
+    public Hotel getHotelById(long hotelId) {
+        return hotelRepository.findHotelById(hotelId);
     }
 }

@@ -12,5 +12,7 @@ public interface HotelRepository extends JpaRepository<Hotel, Long> {
 
     Hotel getHotelByIdAndManagerId(long id, long managerId);
 
-    Hotel deleteHotelByIdAndManagerId(long id, long managerId);
+    Integer deleteHotelByIdAndManagerId(long id, long managerId);
+
+    Hotel findHotelById(long id);
 }

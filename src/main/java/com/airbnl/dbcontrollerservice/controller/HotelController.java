@@ -31,12 +31,12 @@ public class HotelController {
     }
 
     @GetMapping("/allByManagerID")
-    public List<Hotel> getAllByManagerID(@RequestParam("managerId") int managerId) {
+    public List<Hotel> getAllByManagerID(@RequestParam("managerId") long managerId) {
         return hotelService.getAllHotelsByManagerId(managerId);
     }
 
     @GetMapping("/byHotelIdAndManagerId")
-    public Hotel getByHotelIdAndManagerId(@RequestParam("hotelId") int hotelId, @RequestParam("managerId") int managerId) {
+    public Hotel getByHotelIdAndManagerId(@RequestParam("hotelId") long hotelId, @RequestParam("managerId") long managerId) {
         return hotelService.getHotelByHotelIdAndManagerId(hotelId, managerId);
     }
 
@@ -46,7 +46,12 @@ public class HotelController {
     }
 
     @DeleteMapping("/delete")
-    public Hotel deleteByIdAndManagerID(@RequestParam("hotelId") int hotelId, @RequestParam("managerId") int managerId) {
+    public Hotel deleteByIdAndManagerID(@RequestParam("hotelId") long hotelId, @RequestParam("managerId") long managerId) {
         return hotelService.deleteByIdAndManagerID(hotelId, managerId);
+    }
+
+    @GetMapping("/getHotelById")
+    public Hotel getHotelById(@RequestParam("hotelId") long hotelId) {
+        return hotelService.getHotelById(hotelId);
     }
 }

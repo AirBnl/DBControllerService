@@ -18,8 +18,8 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private int userId;
-    private int roomId;
+    private long userId;
+    private long roomId;
     private double cost;
     private Timestamp dateFrom;
     private Timestamp dateTo;

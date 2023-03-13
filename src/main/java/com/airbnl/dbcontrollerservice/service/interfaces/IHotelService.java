@@ -12,8 +12,8 @@ public interface IHotelService {
 
     List<Hotel> getAllHotelsByManagerId(long managerId);
     Hotel save(Hotel hotel);
-    Hotel getHotelByHotelIdAndManagerId(int hotelId, int managerId);
+    Hotel getHotelByHotelIdAndManagerId(long hotelId, long managerId);
     Hotel update(Hotel hotel);
-    Hotel deleteByIdAndManagerID(int hotelId, int managerId);
-
+    Hotel deleteByIdAndManagerID(long hotelId, long managerId);
+    Hotel getHotelById(long hotelId);
 }
